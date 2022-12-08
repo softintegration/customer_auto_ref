@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?><odoo>
+  <data>
+
+        <record id="view_partner_form_inherited" model="ir.ui.view">
+          <field name="name">view.partner.form.inherited</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form"/>
+          <field name="arch" type="xml">
+            <xpath expr="//field[@name='ref']" position="after">
+                <field name="readonly_ref" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='ref']" position="attributes">
+                <attribute name="attrs">{'readonly':[('readonly_ref','=',True)]}</attribute>
+            </xpath>
+          </field>
+        </record>
+
+
+  </data>
+</odoo>
