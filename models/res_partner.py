@@ -26,6 +26,8 @@ class Partner(models.Model):
         for each in partners:
             if each.customer_rank < 1:
                 continue
+            if each.parent_id:
+                continue
             each._set_customer_auto_ref()
         return partners
     
