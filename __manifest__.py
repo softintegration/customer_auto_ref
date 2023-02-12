@@ -2,7 +2,7 @@
 
 {
     'name': 'Customer auto assignment of reference',
-    'version': '1.0.1.1',
+    'version': '1.0.1.2',
     'author':'Soft-integration',
     'category': 'Stock',
     'summary': 'Customer auto assignment of reference',

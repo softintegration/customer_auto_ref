@@ -11,7 +11,12 @@ class Partner(models.Model):
     @api.depends('customer_rank')
     def _compute_readonly_ref(self):
         for each in self:
-            each.readonly_ref = each.customer_rank > 0
+            each.readonly_ref = each.customer_rank > 0 or (self._module_supplier_auto_ref_installed() and each.supplier_rank > 0)
+
+    @api.model
+    def _module_supplier_auto_ref_installed(self):
+        "This method return True if the supplier_auto_ref module is installed"
+        return 'supplier_auto_ref' in self.env['ir.module.module']._installed().keys()
 
     def _set_customer_auto_ref(self):
         for each in self:
